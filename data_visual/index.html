@@ -1,0 +1,632 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/Favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Data Visualisation - Learning to Code with R</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-visualisation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Learning to Code with R" class="md-header__button md-logo" aria-label="Learning to Code with R" data-md-component="logo">
+      
+  <img src="../assets/Favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning to Code with R
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Visualisation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Learning to Code with R" class="md-nav__button md-logo" aria-label="Learning to Code with R" data-md-component="logo">
+      
+  <img src="../assets/Favicon.png" alt="logo">
+
+    </a>
+    Learning to Code with R
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data Visualisation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Data Visualisation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-begin" class="md-nav__link">
+    Let's Begin
+  </a>
+  
+    <nav class="md-nav" aria-label="Let's Begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpg-data-frame" class="md-nav__link">
+    mpg Data Frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-ggplot" class="md-nav__link">
+    Creating a ggplot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphing-template" class="md-nav__link">
+    Graphing Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aesthetic-mappings" class="md-nav__link">
+    Aesthetic Mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facets" class="md-nav__link">
+    Facets
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geometric_objects/" class="md-nav__link">
+        Geometric Visualisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stat_transforms/" class="md-nav__link">
+        Statistical Tranformations
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-begin" class="md-nav__link">
+    Let's Begin
+  </a>
+  
+    <nav class="md-nav" aria-label="Let's Begin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpg-data-frame" class="md-nav__link">
+    mpg Data Frame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-ggplot" class="md-nav__link">
+    Creating a ggplot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphing-template" class="md-nav__link">
+    Graphing Template
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aesthetic-mappings" class="md-nav__link">
+    Aesthetic Mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facets" class="md-nav__link">
+    Facets
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="data-visualisation">Data Visualisation</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Learn how to visualise data with ggplot2. R has several systems for making graphs, but ggplot2 is the most elegant and versatile. ggplot2 implements the <strong>grammar of graphics</strong>, which is a coherent system for describing and building graphs.</p>
+<p>You need to first make sure that you have tidyverse as described in the first page introduction. To do this again you use the line,</p>
+<pre><code class="language-R">install.packages(&quot;tidyverse&quot;)
+</code></pre>
+<h2 id="lets-begin">Let's Begin</h2>
+<p>I've got a question... Do cars with big engines use more fuel than cars with small engines? What does the relationship between engine size and fuel efficiency look like?</p>
+<h3 id="mpg-data-frame"><em>mpg</em> Data Frame</h3>
+<p>This answer can be tested with the <em>mpg</em> data frame found in ggplot2. This is done with <code>ggplot2::mpg</code>.</p>
+<blockquote>
+<p>What is a data frame? A data frame is a rectangular collection of variables (columns) and observations (rows).</p>
+</blockquote>
+<p>This <em>mpg</em> data containts observations collected by the US Environmental Protection Agency on 38 models of cars.</p>
+<p>This is what your I/O will look like. This uses <code>mpg</code> as your input.</p>
+<pre><code class="language-R">&gt; mpg
+# A tibble: 234 × 11
+   manufacturer model      displ  year   cyl trans      drv     cty   hwy fl    class
+   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 audi         a4           1.8  1999     4 auto(l5)   f        18    29 p     compact
+ 2 audi         a4           1.8  1999     4 manual(m5) f        21    29 p     compact
+ 3 audi         a4           2    2008     4 manual(m6) f        20    31 p     compact
+ 4 audi         a4           2    2008     4 auto(av)   f        21    30 p     compact
+ 5 audi         a4           2.8  1999     6 auto(l5)   f        16    26 p     compact
+ 6 audi         a4           2.8  1999     6 manual(m5) f        18    26 p     compact
+ 7 audi         a4           3.1  2008     6 auto(av)   f        18    27 p     compact
+ 8 audi         a4 quattro   1.8  1999     4 manual(m5) 4        18    26 p     compact
+ 9 audi         a4 quattro   1.8  1999     4 auto(l5)   4        16    25 p     compact
+10 audi         a4 quattro   2    2008     4 manual(m6) 4        20    28 p     compact
+# … with 224 more rows
+</code></pre>
+<p>The general variables found in this chart containts</p>
+<ol>
+<li><code>displ</code>, which is the car's engine size in litres</li>
+<li><code>hwy</code>, which is a car's fuel efficiency on the highway, in miles per gallon. A car with low fuel efficiency will consume more gas than are car with better fuel efficiency.</li>
+</ol>
+<h3 id="creating-a-ggplot">Creating a ggplot</h3>
+<p>To plot mpg, you can run the same code and put <code>dipl</code> on the x-axis and <code>hwy</code> on the y-axis.</p>
+<pre><code class="language-R">ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy))
+</code></pre>
+<p>This will result in a plot that looks something like this.</p>
+<p><img alt="mpg ggplot2" src="../assets/data_visual/mpg_plot.png" /></p>
+<p>From this data we can easily see a negative relationship between engine size and fuel efficiency. In other words this means that cars with larger engines use more fuel in a shorter amount of time than smaller cars.</p>
+<p><code>ggplot()</code> creates a coordinate system that you can add layers to. The first argument of <code>ggplot()</code> is the dataset to use in the graph. This means that our first argument <code>ggplot(data = mpg)</code> created an empty graph.</p>
+<p>Using <code>geom_point()</code> adds layers of points to the plot creating a scatter plot. Each geometry function with ggplot2 takes a mapping argument. This defines how variables in the dataset are mapped to visual properties. The mapping argument is always paired with <code>aes</code> and the x/y arguments of <code>aes()</code>.</p>
+<h3 id="graphing-template">Graphing Template</h3>
+<p>The template for graphing something in R is -&gt;</p>
+<pre><code class="language-R">ggplot(data = &lt;DATA&gt;) +
+    &lt;GEOM_FUNC&gt;(mapping = aes(&lt;MAPPINGS&gt;))
+</code></pre>
+<p>Try comparing <code>hwy</code> and <code>cyl</code>. What do you see? What does this data mean? Does having more cylinders mean worse highway mileage.</p>
+<h2 id="aesthetic-mappings">Aesthetic Mappings</h2>
+<p>In a plot, what do we do when we have outliers that are way out from where the normal data is?</p>
+<p><img alt="MPG Outliers Image" src="../assets/data_visual/mpg_outlier.png" /></p>
+<p>You can hypothesize what these cars are. They are most likely going to be hybrid cars and that sounds like a reasonable explanation. The cars are classified by the mpg dataset as subcompact, minivan, midsize, 2seater and pickup. This is found in the class section of the dataset.</p>
+<p>You can add your own third variable, like <code>class</code>, to a two dimensional scatterplot by mapping it to an aesthetic. This is a visual property of the objects in the plot. This includes things like shape, size and color of the points. You can thus change the levels of a point's size, shape and color to make the point anything you would like!</p>
+<p>You can do this with our previous graph and now color code the displ and hwy mileage by the class of car. This is simple, easy and only adds on one command to the general line in R.</p>
+<pre><code class="language-R">ggplot(data = mpg) +
+    geom_point(mapping = aes(x=displ, y=hwy, color=class))
+</code></pre>
+<p><img alt="MPG Plot Colored By Class" src="../assets/data_visual/mpg_class_colors.png" /></p>
+<p>To assign normal aesthetics to a variable, you can associate the name to the name of the variable with <code>aes()</code>. The assignment of this change is called <strong>scaling</strong>. Colors can reveal things about a set of data that you otherwise would not have thought of.</p>
+<p>Instead of mapping the class of the cars to colors, we can map them to different sizes. To do this, you just change it from color to size.</p>
+<pre><code class="language-R">ggplot(data = mpg) +
+    geom_point(mapping = aes(x=displ, y=hwy, size = class))
+</code></pre>
+<p>Note: you should not use size for a discrete variable (countable size, not infinite)</p>
+<p><img alt="mpg With Size Scaling" src="../assets/data_visual/mpg_size_image.png" /></p>
+<p>Two others you can use are alpha and shape aesthetics which change the opacity of the points or the shape of the points respectively.</p>
+<p><img alt="mpg Alpha Scaling" src="../assets/data_visual/mpg_alpha.png" />
+<img alt="mpg Shape Scaling" src="../assets/data_visual/mpg_shapes.png" /></p>
+<p>By default ggplot2 only uses six shapes. This means that any more than six points will not be plotted. Therefore, that is why SUV's are not on this final plot for shapes.</p>
+<p>Once an aesthetic is mapped, ggplot2 finishes the rest of the computations and math. It will select a reasonable scale to use and constructs its own legend. For x and y aesthetics, ggplot2 does not create a legend but adds them to the axis lines. These axes act as a legend.</p>
+<p>Aesthetics can be set manually as well. You can easily make all points on your plot green with:</p>
+<pre><code class="language-R">ggplot(data=mpg) +
+    geom_point(mapping = aes(x=displ, y=hwy), color = &quot;green&quot;)
+</code></pre>
+<p><img alt="mpg Green Color" src="../assets/data_visual/mpg_green.png" /></p>
+<p>The color doesn't convey any information about the variable but only changes the color of the points.</p>
+<h2 id="facets">Facets</h2>
+<p>One way to add additional variables is with aesthetics. Another way, which is useful for categorical variables, is to split the plot into <strong>facets</strong>, subplots that each display one subset of data.</p>
+<p>To facet a plot by a single variable, you want to use <code>facet_wrap()</code>. The variable that is passed in here should be discrete.</p>
+<pre><code class="language-R">ggplot(data = mpg) +
+    geom_point(mapping = aes(x=displ, y=hwy)) +
+    facet_wrap(~ class, nrow = 2)
+</code></pre>
+<p><img alt="mpg Facet Wrap" src="../assets/data_visual/mpg_facet_wrap.png" /></p>
+<p>You can also do this with the combination of two variables. This is done with <code>facet_grid()</code>. The first arg is also a formula(<code>~</code>) and separates the variable names.</p>
+<pre><code class="language-R">ggplot(data = mpg) +
+    geom_point(mapping = aes(x=displ, y=hwy)) +
+    facet_grid(drv ~ cyl)
+</code></pre>
+<p><img alt="Facet Grid" src="../assets/data_visual/mpg_facet_grid.png" /></p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../geometric_objects/" class="md-footer__link md-footer__link--next" aria-label="Next: Geometric Visualisation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Geometric Visualisation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/markashinhust/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Markay12" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "header.autohide"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
