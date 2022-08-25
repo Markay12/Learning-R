@@ -1,1 +1,57 @@
-site_name: My Docs
+site_name: Learning to Code with R
+
+theme:
+  name: material
+
+  font:
+    text: Roboto
+
+  logo: assets/Favicon.png
+
+  footer: false
+
+  favicon: assets/Favicon.png
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - header.autohide
+
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+extra:
+  generator: false
+
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/markashinhust/
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/Markay12
+
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+nav:
+  - Introduction: index.md
+  - Data Visualisation: data_visual.md
