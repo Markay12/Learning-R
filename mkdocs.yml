@@ -55,3 +55,5 @@ extra:
 nav:
   - Introduction: index.md
   - Data Visualisation: data_visual.md
+  - Geometric Visualisation: geometric_objects.md
+  - Statistical Tranformations: stat_transforms.md

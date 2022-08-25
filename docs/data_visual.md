@@ -58,7 +58,7 @@ ggplot(data = mpg) +
 
 This will result in a plot that looks something like this.
 
-![mpg ggplot2](./assets/mpg_plot.png)
+![mpg ggplot2](./assets/data_visual/mpg_plot.png)
 
 From this data we can easily see a negative relationship between engine size and fuel efficiency. In other words this means that cars with larger engines use more fuel in a shorter amount of time than smaller cars.
 
@@ -81,7 +81,7 @@ Try comparing `hwy` and `cyl`. What do you see? What does this data mean? Does h
 
 In a plot, what do we do when we have outliers that are way out from where the normal data is?
 
-![MPG Outliers Image](./assets/mpg_outlier.png)
+![MPG Outliers Image](./assets/data_visual/mpg_outlier.png)
 
 You can hypothesize what these cars are. They are most likely going to be hybrid cars and that sounds like a reasonable explanation. The cars are classified by the mpg dataset as subcompact, minivan, midsize, 2seater and pickup. This is found in the class section of the dataset.
 
@@ -94,7 +94,7 @@ ggplot(data = mpg) +
     geom_point(mapping = aes(x=displ, y=hwy, color=class))
 ```
 
-![MPG Plot Colored By Class](./assets/mpg_class_colors.png)
+![MPG Plot Colored By Class](./assets/data_visual/mpg_class_colors.png)
 
 To assign normal aesthetics to a variable, you can associate the name to the name of the variable with `aes()`. The assignment of this change is called **scaling**. Colors can reveal things about a set of data that you otherwise would not have thought of.
 
@@ -107,12 +107,12 @@ ggplot(data = mpg) +
 
 Note: you should not use size for a discrete variable (countable size, not infinite)
 
-![mpg With Size Scaling](./assets/mpg_size_image.png)
+![mpg With Size Scaling](./assets/data_visual/mpg_size_image.png)
 
 Two others you can use are alpha and shape aesthetics which change the opacity of the points or the shape of the points respectively.
 
-![mpg Alpha Scaling](./assets/mpg_alpha.png)
-![mpg Shape Scaling](./assets/mpg_shapes.png)
+![mpg Alpha Scaling](./assets/data_visual/mpg_alpha.png)
+![mpg Shape Scaling](./assets/data_visual/mpg_shapes.png)
 
 By default ggplot2 only uses six shapes. This means that any more than six points will not be plotted. Therefore, that is why SUV's are not on this final plot for shapes.
 
@@ -125,7 +125,7 @@ ggplot(data=mpg) +
     geom_point(mapping = aes(x=displ, y=hwy), color = "green")
 ```
 
-![mpg Green Color](./assets/mpg_green.png)
+![mpg Green Color](./assets/data_visual/mpg_green.png)
 
 The color doesn't convey any information about the variable but only changes the color of the points.
 
@@ -141,7 +141,7 @@ ggplot(data = mpg) +
     facet_wrap(~ class, nrow = 2)
 ```
 
-![mpg Facet Wrap](./assets/mpg_facet_wrap.png)
+![mpg Facet Wrap](./assets/data_visual/mpg_facet_wrap.png)
 
 You can also do this with the combination of two variables. This is done with `facet_grid()`. The first arg is also a formula(`~`) and separates the variable names.
 
@@ -151,4 +151,4 @@ ggplot(data = mpg) +
     facet_grid(drv ~ cyl)
 ```
 
-![Facet Grid](./assets/mpg_facet_grid.png)
+![Facet Grid](./assets/data_visual/mpg_facet_grid.png)
